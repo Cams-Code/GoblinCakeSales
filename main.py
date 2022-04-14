@@ -29,7 +29,7 @@ class GoblinCakeSales(db.Model):
     Quarter = Column(Integer, nullable=True)
 
 
-# db.create_all()
+db.create_all()
 
 # Create nested list using data
 
@@ -69,17 +69,22 @@ product_data = [['Hobgoblin', 'Cake', 4, 388, 1],
                 ['Brownie', 'Cake', 1.5, 666, 4]
                 ]
 
-# Add data to table
-for product in product_data:
-    new_product = GoblinCakeSales(
-        Product=product[0],
-        Product_Type=product[1],
-        Price_Per=product[2],
-        Units_Sold=product[3],
-        Quarter=product[4]
-    )
-    db.session.add(new_product)
-    db.session.commit()
+# Check if data is already in database
+
+if GoblinCakeSales.query.all():
+    pass
+else:
+    # Add data to database if empty
+    for product in product_data:
+        new_product = GoblinCakeSales(
+            Product=product[0],
+            Product_Type=product[1],
+            Price_Per=product[2],
+            Units_Sold=product[3],
+            Quarter=product[4]
+        )
+        db.session.add(new_product)
+        db.session.commit()
 
 # Create global variables
 just_cakes = True
