@@ -1,0 +1,31 @@
+body {
+    background-image: linear-gradient(white, grey);
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+form {
+    display: inline;
+}
+
+.buttons {
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.quarter-button {
+    margin-left: 50px;
+}
+
+.btn-toggle {
+    transform: scale(1.5);
+}
+
+#table-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
